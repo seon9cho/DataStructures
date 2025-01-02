@@ -1,0 +1,120 @@
+//
+//  LinkedList.cpp
+//  Lab 2- Linked List
+//
+//  Created by Seong-Eun Cho on 5/17/16.
+//  Copyright © 2016 Seong-Eun Cho. All rights reserved.
+//
+
+#include <stdio.h>
+#include "LinkedList.h"
+#include <iostream>
+using namespace std;
+
+template<typename T>
+LinkedList<T>::LinkedList()
+{
+    range = 0;
+    start = NULL;
+    
+}
+
+template<typename T>
+void LinkedList<T>::insertHead(T value)
+{
+    Node<T>* a = new Node<T>;
+    a->data = value;
+    a->next = start;
+    start = a;
+    
+    range++;
+}
+
+template<typename T>
+void LinkedList<T>::insertTail(T value)
+{
+    Node<T>* a = new Node<T>;
+    a->data = value;
+    Node<T>* b = start;
+    while (b->next != NULL)
+    {
+        b = b->next;
+    }
+    b->next = a;
+    a->next = NULL;
+    
+    range++;
+}
+
+template<typename T>
+void LinkedList<T>::insertAfter(T value, T insertionNode)
+{
+    Node<T>* a = new Node<T>;
+    a->data = value;
+    Node<T>* b = start;
+    while (b != insertionNode)
+    {
+        b = b->next;
+    }
+    a->next = b->next;
+    b->next = a;
+    
+    range++;
+}
+
+template<typename T>
+void LinkedList<T>::remove(T value)
+{
+    if (start != NULL){
+        Node<T>* b = start;
+        if (b->data == value){
+            start = start->next;
+            delete b;
+            range--;
+        }
+        else{
+            while (!(b->next = NULL || b->next->data = value))
+            {
+                b = b->next;
+            }
+            Node<T>* a = b->next;
+            if (a != NULL){
+                b->next = a->next;
+                delete a;
+                
+                range--;
+            }
+        }
+    }
+}
+
+template<typename T>
+void LinkedList<T>::clear()
+{
+    Node<T>* b;
+    while (start != NULL)
+    {
+        b = start;
+        start = start->next;
+        delete b;
+    }
+    range = 0;
+}
+
+template<typename T>
+T LinkedList<T>::at(int index)
+{
+    Node<T>* a = start;
+    for (int i = 0; i < index; i++)
+    {
+        a = a->next;
+    }
+    
+    return a->data;
+}
+
+template<typename T>
+int LinkedList<T>::size()
+{
+    return range;
+}
