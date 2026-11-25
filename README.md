@@ -17,17 +17,27 @@ Each folder also keeps the grader feedback from my original submissions (`*_feed
 
 ## CS 235 labs
 
-| Lab | Folder |
-|-----|--------|
-| 1 | [Lab 1 - RPG](<Lab 1 - RPG>) |
-| 2 | [Lab 2 - Linked List](<Lab 2 - Linked List>) |
-| 3 | [Lab 3 - Shunting Yard](<Lab 3 - Shunting Yard>) |
-| 4 | [Lab 4 - Railroad](<Lab 4 - Railroad>) |
-| 5 | [Lab 5 - 3D Maze](<Lab 5 - 3D Maze>) |
-| 6 | [Lab 6 - BST](<Lab 6 - BST>) |
-| 7 | [Lab 7 - Maps and Sets](<Lab 7 - Maps and Sets>) |
-| 8 | [Lab 8 - Quicksort](<Lab 8 - Quicksort>) |
-| 9 | [Lab 9 - AVL Tree](<Lab 9 - AVL Tree>) |
+My C++ labs from CS 235 (Data Structures). Each lab implemented an interface the course provided; the course's own test driver isn't included, so each `main.cpp` is a small driver or menu I used while working on it.
+
+| Lab | What it implements | Sources to compile |
+|-----|--------------------|--------------------|
+| [Lab 1 - RPG](<Lab 1 - RPG>) | An arena of fighters (robot, archer, cleric), each with its own damage, regeneration and special ability, created through a factory | `main.cpp Fighter.cpp Factory.cpp` |
+| [Lab 2 - Linked List](<Lab 2 - Linked List>) | A templated singly linked list without duplicates | `main.cpp` |
+| [Lab 3 - Shunting Yard](<Lab 3 - Shunting Yard>) | Bracket balancing, infix-to-postfix and postfix-to-infix conversion, and postfix evaluation; `part1`–`part4.txt` are sample inputs | `main.cpp ExpressionManager.cpp` |
+| [Lab 4 - Railroad](<Lab 4 - Railroad>) | A railroad switching station that moves cars between a stack, a queue and three kinds of deque, all built on hand-written linked containers | `main.cpp Station.cpp` |
+| [Lab 5 - 3D Maze](<Lab 5 - 3D Maze>) | Loads, validates and randomly generates 5×5×5 mazes and solves them by recursive depth-first search | `main.cpp Pathfinder.cpp` |
+| [Lab 6 - BST](<Lab 6 - BST>) | An integer binary search tree with add, remove and clear | `main.cpp BST.cpp Node.cpp` |
+| [Lab 7 - Maps and Sets](<Lab 7 - Maps and Sets>) | Student records in a `std::map` by ID and a `std::set` by name, with grade import, GPA calculation and queries; sample data in `Files/` | `main.cpp` |
+| [Lab 8 - Quicksort](<Lab 8 - Quicksort>) | Quicksort on a dynamic array, with median-of-three pivot selection and partitioning | `main.cpp QS.cpp` |
+| [Lab 9 - AVL Tree](<Lab 9 - AVL Tree>) | A self-balancing AVL tree built on Lab 6's BST, with all four rotations | `main.cpp AVL.cpp Node.cpp` |
+
+Build a lab from its folder with a C++11-or-later compiler, passing the sources listed for it, for example:
+
+```bash
+cd "Lab 9 - AVL Tree" && clang++ -std=c++17 main.cpp AVL.cpp Node.cpp -o avl
+```
+
+Labs 4 and 6–9 run a numbered command menu on standard input.
 
 ## Credits
 
